@@ -47,45 +47,58 @@ $hotels = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel's</title>
+    <!-- Bootstrap v-5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Style CSS -->
     <link rel="stylesheet" href="./styles/">
+
 </head>
 
 <body>
     <main>
-        <ol>
-            <?php
-            var_dump($hotels); //To remove
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">Parcheggio</th>
+                    <th scope="col">Distanza dal centro</th>
 
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($hotels as $key => $hotel) {
+                    //Check parking is true/false
+                    if ($hotel['parking']) {
+                        $parking = 'Si';
+                    } else {
+                        $parking = 'No';
+                    }
 
-            foreach ($hotels as $key => $hotel) {
-                //Check parking is true/false
-                if ($hotel['parking']) {
-                    $parking = 'Si';
-                } else {
-                    $parking = 'No';
-                }
-
-                echo "
-            <li>
-            <h2>
+                    echo "
+            <tr>
+            <th>{$key}</th>
+            <td>
             {$hotel['name']}
-            </h2>
-            <p>
+            </td>
+            <td>
             {$hotel['description']}
-            </p>
-            <p>
-            Parcheggio:
+            </td>
+            <td>
             {$parking}
-                <br>
-            Distanza dal centro:
+            </td>
+            <td>
             {$hotel['distance_to_center']}
-            </p>
+            </td>
 
-            </li>
+            </tr>
             ";
-            };
-            ?>
-        </ol>
+                };
+                ?>
+            </tbody>
+        </table>
     </main>
 </body>
 
