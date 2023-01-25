@@ -89,6 +89,8 @@ $hotels = [
             <tbody>
                 <?php
                 $selectParking = $_GET['hotelParking'];
+                $hotelRating = $_GET['hotelRate'];
+
 
                 foreach ($hotels as $key => $hotel) {
                     //Check parking is true/false
@@ -99,28 +101,30 @@ $hotels = [
                     }
 
                     if ($selectParking == $parking || $selectParking == 'none') {
-                        echo "
-            <tr>
-            <th>{$key}</th>
-            <td class='fw-bold'>
-            {$hotel['name']}
-            </td>
-            <td>
-            {$hotel['description']}
-            </td>
-            <td>
-            {$hotel['vote']}
-            </td>
-            <td>
-            {$parking}
-            </td>
-            <td>
-            {$hotel['distance_to_center']}
-            </td>
+                        if ($hotel['vote'] >= $hotelRating) {
 
-            </tr>
-            ";
-                    };
+                            echo "
+                            <tr>
+                            <th>{$key}</th>
+                            <td class='fw-bold'>
+                            {$hotel['name']}
+                            </td>
+                            <td>
+                            {$hotel['description']}
+                            </td>
+                            <td>
+                            {$hotel['vote']}
+                            </td>
+                            <td>
+                            {$parking}
+                            </td>
+                            <td>
+                            {$hotel['distance_to_center']}
+                            </td>
+                            </tr>
+                            ";
+                        };
+                    }
                 }
                 ?>
             </tbody>
