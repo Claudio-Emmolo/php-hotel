@@ -58,21 +58,23 @@ $hotels = [
     <main>
         <!-- Select by parking -->
         <form action="index.php" method="get">
-            <label for="">Hotel con parcheggio?</label>
-            <select name="hotelParking">
-                <option value="none">---</option>
-                <option value="Si">Si</option>
-                <option value="No">No</option>
-            </select>
+            <div class="parking-incluse">
+                <label for="">Hotel con parcheggio?</label>
+                <select name="hotelParking">
+                    <option value="none">---</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="rating-vote">
+                <!-- Select by vote -->
+                <label for="">Hotel per valutazione?</label>
+                <input type="number" name="hotelRate">
+            </div>
+
             <button type="submit">Cerca</button>
         </form>
-
-        <!-- Select by vote -->
-        <form action="index.php" method="get">
-            <input type="number" name="hotelRate">
-            <button type="submit">Cerca</button>
-        </form>
-
 
         <table class="table table-warning table-striped">
             <thead>
