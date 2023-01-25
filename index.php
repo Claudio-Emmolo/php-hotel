@@ -56,6 +56,7 @@ $hotels = [
 
 <body>
     <main>
+        <!-- Select by parking -->
         <form action="index.php" method="get">
             <label for="">Hotel con parcheggio?</label>
             <select name="hotelParking">
@@ -66,12 +67,20 @@ $hotels = [
             <button type="submit">Cerca</button>
         </form>
 
+        <!-- Select by vote -->
+        <form action="index.php" method="get">
+            <input type="number" name="hotelRate">
+            <button type="submit">Cerca</button>
+        </form>
+
+
         <table class="table table-warning table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Descrizione</th>
+                    <th scope="col">Voto</th>
                     <th scope="col">Parcheggio</th>
                     <th scope="col">Distanza dal centro</th>
 
@@ -98,6 +107,9 @@ $hotels = [
             </td>
             <td>
             {$hotel['description']}
+            </td>
+            <td>
+            {$hotel['vote']}
             </td>
             <td>
             {$parking}
