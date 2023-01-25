@@ -58,6 +58,13 @@ $hotels = [
 
 
             foreach ($hotels as $key => $hotel) {
+                //Check parking is true/false
+                if ($hotel['parking']) {
+                    $parking = 'Si';
+                } else {
+                    $parking = 'No';
+                }
+
                 echo "
             <li>
             <h2>
@@ -66,11 +73,10 @@ $hotels = [
             <p>
             {$hotel['description']}
             </p>
-            <span>
-            Parcheggio:
-            {$hotel['parking']}
-            </span>
             <p>
+            Parcheggio:
+            {$parking}
+                <br>
             Distanza dal centro:
             {$hotel['distance_to_center']}
             </p>
