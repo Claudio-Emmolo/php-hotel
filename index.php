@@ -124,7 +124,7 @@ $hotels = [
                             {$parking}
                             </td>
                             <td>
-                            {$hotel['distance_to_center']}
+                            {$hotel['distance_to_center']}<span class='fst-italic'> Km <span>
                             </td>
                             </tr>
                             ";
