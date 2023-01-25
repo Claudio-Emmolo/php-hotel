@@ -50,31 +50,34 @@ $hotels = [
     <!-- Bootstrap v-5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="./styles/">
+    <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 
 <body>
     <main>
-        <!-- Select by parking -->
-        <form action="index.php" method="get">
-            <div class="parking-incluse">
-                <label for="">Hotel con parcheggio?</label>
-                <select name="hotelParking">
-                    <option value="none">---</option>
-                    <option value="Si">Si</option>
-                    <option value="No">No</option>
-                </select>
-            </div>
+        <section id="data-selection" class="d-flex flex-column text-center">
+            <h1>Cerca il tuo Hotel</h1>
+            <!-- Select by parking -->
+            <form action="index.php" method="get">
+                <div class="parking-incluse">
+                    <label for="">Hotel con parcheggio?</label>
+                    <select name="hotelParking">
+                        <option value="none">---</option>
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
 
-            <div class="rating-vote">
-                <!-- Select by vote -->
-                <label for="">Hotel per valutazione?</label>
-                <input type="number" name="hotelRate">
-            </div>
+                <div class="rating-vote">
+                    <!-- Select by vote -->
+                    <label for="">Hotel per valutazione?</label>
+                    <input type="number" name="hotelRate">
+                </div>
 
-            <button type="submit">Cerca</button>
-        </form>
+                <button type="submit">Cerca</button>
+            </form>
+        </section>
 
         <table class="table table-warning table-striped">
             <thead>
@@ -102,7 +105,7 @@ $hotels = [
                         $parking = 'No';
                     }
 
-                    if ($selectParking == $parking || $selectParking == 'none') {
+                    if ($selectParking == $parking || $selectParking == 'none' || $selectParking == null) {
                         if ($hotel['vote'] >= $hotelRating) {
 
                             echo "
