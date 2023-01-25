@@ -56,6 +56,16 @@ $hotels = [
 
 <body>
     <main>
+        <form action="index.php" method="get">
+            <label for="">Hotel con parcheggio?</label>
+            <select name="hotelParking">
+                <option value="none">---</option>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+            <button type="submit">Cerca</button>
+        </form>
+
         <table class="table table-warning table-striped">
             <thead>
                 <tr>
@@ -69,6 +79,8 @@ $hotels = [
             </thead>
             <tbody>
                 <?php
+                $selectParking = $_GET['hotelParking'];
+
                 foreach ($hotels as $key => $hotel) {
                     //Check parking is true/false
                     if ($hotel['parking']) {
@@ -77,7 +89,8 @@ $hotels = [
                         $parking = 'No';
                     }
 
-                    echo "
+                    if ($selectParking == $parking || $selectParking == 'none') {
+                        echo "
             <tr>
             <th>{$key}</th>
             <td class='fw-bold'>
@@ -95,7 +108,8 @@ $hotels = [
 
             </tr>
             ";
-                };
+                    };
+                }
                 ?>
             </tbody>
         </table>
