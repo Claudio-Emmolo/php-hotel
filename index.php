@@ -110,7 +110,11 @@ $hotels = [
 
                             echo "
                             <tr>
-                            <th>{$key}</th>
+                            <th>"
+                                .
+                                ($key + 1)
+                                .
+                                "</th>
                             <td class='fw-bold'>
                             {$hotel['name']}
                             </td>
