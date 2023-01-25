@@ -56,7 +56,7 @@ $hotels = [
 
 <body>
     <main>
-        <table class="table">
+        <table class="table table-warning table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -80,7 +80,7 @@ $hotels = [
                     echo "
             <tr>
             <th>{$key}</th>
-            <td>
+            <td class='fw-bold'>
             {$hotel['name']}
             </td>
             <td>
